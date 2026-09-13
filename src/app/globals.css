@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #09090B;
+  --bg-surface: #111113;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent-bronze: #B38A64;
+  --text-primary: #F3F3F2;
+  --text-secondary: #A1A1AA;
+
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+}
+
+@theme inline {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-border-subtle: var(--border-subtle);
+  --color-bronze: var(--accent-bronze);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --font-space: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+}
+
+html {
+  background-color: #09090B;
+  color: #F3F3F2;
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: #09090B;
+  color: #F3F3F2;
+  overflow-x: hidden;
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+::selection {
+  background-color: #B38A64;
+  color: #09090B;
+}
+
+/* Container Spacing Utility: max-width 1240px, width 100%, equal auto margins, padding-inline clamp(20px, 4vw, 40px) */
+.portfolio-container {
+  max-width: 1240px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+
+/* Linear x Vercel Editorial Surface Card */
+.glass-card {
+  background: #111113;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: #161619;
+  border-color: rgba(179, 138, 100, 0.35);
+  transform: translateY(-4px);
+}
+
+/* Noise Grain */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E1E22;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B38A64;
+}
+
+/* Lenis Smooth Scroll & Modal Scroll Lock Rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Light Mode Global System Overrides */
+html.light {
+  --bg-primary: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --accent-bronze: #8C6239;
+  --text-primary: #09090B;
+  --text-secondary: #52525B;
+  background-color: #FAFAFA !important;
+  color: #09090B !important;
+}
+
+html.light body {
+  background-color: #FAFAFA !important;
+  color: #09090B !important;
+}
+
+html.light .glass-card {
+  background: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .glass-card-hover:hover {
+  background: #F4F4F6 !important;
+  border-color: rgba(140, 98, 57, 0.4) !important;
+}
+
+html.light .bg-\[\#09090B\],
+html.light .bg-\[\#0F0F10\] {
+  background-color: #FAFAFA !important;
+}
+
+html.light .bg-\[\#111113\] {
+  background-color: #FFFFFF !important;
+}
+
+html.light .bg-\[\#1A1A1D\] {
+  background-color: #F4F4F6 !important;
+}
+
+html.light .bg-\[\#09090B\]\/85,
+html.light .bg-\[\#09090B\]\/95 {
+  background-color: rgba(250, 250, 250, 0.95) !important;
+}
+
+html.light .text-\[\#F3F3F2\] {
+  color: #09090B !important;
+}
+
+html.light .text-\[\#A1A1AA\] {
+  color: #52525B !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+}
+
+
